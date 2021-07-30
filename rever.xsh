@@ -5,7 +5,7 @@ $VERSION_BUMP_PATTERNS = [
     ('bg_mpl_stylesheet/__init__.py', '__version__\s*=.*', "__version__ = '$VERSION'"),
     ('setup.py', 'version\s*=.*,', "version='$VERSION',")
     ]
-$CHANGELOG_FILENAME = 'v0.1.0.rst'
+$CHANGELOG_FILENAME = 'CHANGELOG.rst'
 $CHANGELOG_IGNORE = ['TEMPLATE.rst']
 $PUSH_TAG_REMOTE = 'git@github.com:Billingegroup/bg-mpl-stylesheets.git'
 
