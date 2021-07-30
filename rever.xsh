@@ -5,7 +5,7 @@ $ACTIVITIES = [
     'tag',
     'push_tag',
     'ghrelease',
-#    'conda_forge',
+    'conda_forge',
 ]
 
 $VERSION_BUMP_PATTERNS = [

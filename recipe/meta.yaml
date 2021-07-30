@@ -1,0 +1,49 @@
+{% set group = connorjbracy %}
+{% set name = "cb-mpl-stylesheets" %}
+{% set version = environ.get('GIT_DESCRIBE_TAG', 'untagged')|string|replace('-','_') %}
+{% set build_number = environ.get('GIT_DESCRIBE_NUMBER', '0') %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: http://github.com/{{ group }}/{{ name }}/releases/download/{{ version }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  noarch: python
+
+  number: {{ build_number }}
+  string: {{ [build_number, ('h' + PKG_HASH), environ.get('GIT_DESCRIBE_HASH', '')]|join('_') }}
+
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python >=3.6
+    - matplotlib-base
+
+test:
+  imports:
+    - bg_mpl_stylesheets
+  commands:
+    - pytest
+  requires:
+    - pytest
+  source_files:
+    - tests/
+
+about:
+  home: https://github.com/connorjbracy/cb-mpl-stylesheets
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - connorjbracy
