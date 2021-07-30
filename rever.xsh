@@ -2,7 +2,7 @@ $PROJECT = 'bg_mpl_stylesheet'
 $ACTIVITIES = ['version_bump', 'changelog', 'tag', 'push_tag', 'ghrelease', 'conda_forge']
 
 $VERSION_BUMP_PATTERNS = [
-    ('billinge_style/__init__.py', '__version__\s*=.*', "__version__ = '$VERSION'"),
+    ('bg_mpl_stylesheet/__init__.py', '__version__\s*=.*', "__version__ = '$VERSION'"),
     ('setup.py', 'version\s*=.*,', "version='$VERSION',")
     ]
 $CHANGELOG_FILENAME = 'v0.1.0.rst'
