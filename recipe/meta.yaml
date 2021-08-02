@@ -1,7 +1,8 @@
-{% set group = connorjbracy %}
+{% set group = "connorjbracy" %}
 {% set name = "cb-mpl-stylesheets" %}
 {% set version = environ.get('GIT_DESCRIBE_TAG', 'untagged')|string|replace('-','_') %}
 {% set build_number = environ.get('GIT_DESCRIBE_NUMBER', '0') %}
+{% set sha256 = "2907e0435f1f277db31e8c69e3d5a6e86fc5eba10ebd9be4797201193ca0b4bc" %}
 
 package:
   name: {{ name|lower }}
@@ -39,7 +40,7 @@ test:
     - tests/
 
 about:
-  home: https://github.com/connorjbracy/cb-mpl-stylesheets
+  home: https://github.com/{{ group }}/{{ name }}
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
